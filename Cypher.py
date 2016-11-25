@@ -3,7 +3,11 @@ def key_creation(key):
     char_list = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
     itt = 0
     ascii_list = []
+    key_red = ""
     for char in key:
+        if char not in key_red:
+            key_red = key_red + char
+    for char in key_red:
         if char not in ascii_list:
             ascii_list.append([char, ord("a") + itt])
             itt += 1
