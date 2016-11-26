@@ -46,31 +46,31 @@ def decrypt(key, code):
     return new_string
 
 
+key_string = input("Please select a key word for your cypher: ")
+key_list = key_creation(key_string)
 while(True):
-    key_string = input("Please select a key word for your cypher: ")
-    key_list = key_creation(key_string)
     message = input("Please input your message: ")
-    resp =  input("Type 'e' if you would like this message encrypted or type 'd' if you would like it decrypted. Type 'exit' to quit.: ")
+    resp =  input("Type 'e' if you would like this message encrypted or type 'd' if you would like it decrypted.: ")
     print()
     resp = resp.lower()
     if resp == "e":
         out = encrypt(key_list, message)
         print(out)
         print()
-        cont = input("Would you like to exit this program? (Respond 'yes' or 'no'): ")
-        if cont.lower() == "yes":
+        cont = input("Would you like to continue with your current key word?: ")
+        if cont.lower() == "no":
             break
-        continue
+        elif cont.lower() == "yes":
+            continue
     elif resp == "d":
         out = decrypt(key_list, message)
         print(out)
         print()
-        cont = input("Would you like to exit this program? (Respond 'yes' or 'no'): ")
-        if cont.lower() == "yes":
+        cont = input("Would you like to continue with your current key word?: ")
+        if cont.lower() == "no":
             break
-        continue
-    elif resp == "exit":
-        break
+        elif cont.lower() == "yes":
+            continue
     else:
         print("Not a valid command. Type 'e' to encrypt, type 'd' to decrypt. Or type 'exit' to quit.: ")
         print()
